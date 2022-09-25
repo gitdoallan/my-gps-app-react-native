@@ -2,7 +2,8 @@ export const theme = {
   default: {
     primary: '#000',
     secondary: '#fff',
-    green: 'green',
+    success: 'green',
+    error: 'red',
     gray: 'gray',
     backgroundColor: '#fff',
     statusBarBg: '#000065',

@@ -10,10 +10,13 @@ export const serviceStatusSlice = createSlice({
       state.activated = payload;
       if (!payload) {
         state.status = false;
+        return state;
       }
+      return state;
     },
     setServiceStatus: (state, { payload }) => {
       state.status = payload;
+      return state;
     },
   },
 });

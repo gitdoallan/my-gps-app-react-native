@@ -19,6 +19,6 @@ export const Title = styled.Text`
 export const Status = styled.Text`
   font-size: 22px;
   font-style: italic;
-  color: green;
+  color: ${(props) => (props.serviceStatus ? theme.success : theme.error)};
   margin-left: 20px;
 `;
