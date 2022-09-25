@@ -8,10 +8,6 @@ export const serviceStatusSlice = createSlice({
   reducers: {
     setServiceActivated: (state, { payload }) => {
       state.activated = payload;
-      if (!payload) {
-        state.status = false;
-        return state;
-      }
       return state;
     },
     setServiceStatus: (state, { payload }) => {

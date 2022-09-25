@@ -1,19 +1,24 @@
 import { View } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { useTheme } from 'hooks';
-import { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setServiceStatus } from 'redux/slicers';
 import NetInfo from '@react-native-community/netinfo';
 import * as S from './styles/AppConnectionStatus.styles';
 
 export function AppConnectionStatus() {
   const theme = useTheme();
   const { serviceStatus } = useSelector((state) => state);
-  const [isConnected, setIsConnected] = useState(true);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     NetInfo.addEventListener((state) => {
-      setIsConnected(state.isConnected && state.isInternetReachable);
+      dispatch(
+        setServiceStatus(
+          state.isConnected && state.isInternetReachable && serviceStatus.activated,
+        ),
+      );
     });
   }, []);
 
@@ -22,8 +27,8 @@ export function AppConnectionStatus() {
       <Feather name="compass" size={80} color={theme.statusBarBg} />
       <View>
         <S.Title>My GPS - Tracking</S.Title>
-        <S.Status serviceStatus={serviceStatus.status && isConnected}>
-          {serviceStatus.status && isConnected ? 'Online' : 'Offline'}
+        <S.Status serviceStatus={serviceStatus.status && serviceStatus.activated}>
+          {serviceStatus.status && serviceStatus.activated ? 'Online' : 'Offline'}
         </S.Status>
       </View>
     </S.Container>
