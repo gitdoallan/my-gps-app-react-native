@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { useTheme } from 'hooks';
+
+const theme = useTheme();
 
 export const Title = styled.Text`
   font-size: 24px;
@@ -20,7 +23,8 @@ export const Button = styled.TouchableOpacity`
   width: 80px;
   height: 80px;
   border-radius: 5px;
-  border: 1px solid gray;
+  border: 1px solid ${(props) => (props.isSelected ? theme.success : theme.gray)};
+  background-color: ${(props) => (props.isSelected ? theme.sucessBg : theme.backgroundColor)};
 `;
 
 export const ButtonText = styled.Text`

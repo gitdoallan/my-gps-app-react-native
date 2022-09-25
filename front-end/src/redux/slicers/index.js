@@ -1,1 +1,7 @@
-export { serviceStatusSlice, setServiceActivated, setServiceStatus } from './serviceStatus.slice';
+export {
+  serviceStatusSlice,
+  setServiceActivated,
+  setServiceStatus,
+} from './serviceStatus.slice';
+
+export { serviceIntervalSlice, setServiceInterval } from './serviceInterval.slice';
