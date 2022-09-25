@@ -4,13 +4,17 @@ import { SafeAreaView } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { Routes } from 'routes';
 import { theme } from 'themes';
+import { Provider } from 'react-redux';
+import { store } from 'redux/store';
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <SafeAreaView backgroundColor={theme.default.statusBarBg} />
-      <StatusBar style={theme.default.statusBar} />
-      <Routes />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <SafeAreaView backgroundColor={theme.default.statusBarBg} />
+        <StatusBar style={theme.default.statusBar} />
+        <Routes />
+      </ThemeProvider>
+    </Provider>
   );
 }
