@@ -4,7 +4,7 @@ export const theme = {
     secondary: '#fff',
     green: 'green',
     gray: 'gray',
-    backgroundColor: '#dcdde1',
+    backgroundColor: '#fff',
     statusBarBg: '#000065',
     statusBar: 'light',
     topBarBg: '#1e1c84',

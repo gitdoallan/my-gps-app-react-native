@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Title = styled.Text`
-  font-size: 28px;
+  font-size: 24px;
   margin: 50px 20px 0 20px;
 `;
 
@@ -9,7 +9,7 @@ export const Container = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 10px 20px;
+  margin: 20px 20px;
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -24,5 +24,5 @@ export const Button = styled.TouchableOpacity`
 `;
 
 export const ButtonText = styled.Text`
-  font-size: 26px;
+  font-size: 24px;
 `;

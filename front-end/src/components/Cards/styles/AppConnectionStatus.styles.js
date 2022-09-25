@@ -10,8 +10,8 @@ export const Container = styled.View`
 `;
 
 export const Title = styled.Text`
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 26px;
+  font-weight: 500;
   margin: 5px 20px;
   color: ${theme.primary};
 `;
