@@ -3,7 +3,7 @@ import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { ThemeProvider } from 'styled-components';
 import { Home } from 'screens';
-import { theme } from 'styles';
+import { theme } from 'themes';
 
 export default function App() {
   return (
