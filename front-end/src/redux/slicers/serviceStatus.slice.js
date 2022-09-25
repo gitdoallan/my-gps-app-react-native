@@ -1,16 +1,21 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = true;
+const initialState = { status: true, activated: true };
 
 export const serviceStatusSlice = createSlice({
-  name: 'darkMode',
+  name: 'serviceStatus',
   initialState,
   reducers: {
+    setServiceActivated: (state, { payload }) => {
+      state.activated = payload;
+      if (!payload) {
+        state.status = false;
+      }
+    },
     setServiceStatus: (state, { payload }) => {
-      state = payload;
-      return state;
+      state.status = payload;
     },
   },
 });
 
-export const { setServiceStatus } = serviceStatusSlice.actions;
+export const { setServiceStatus, setServiceActivated } = serviceStatusSlice.actions;

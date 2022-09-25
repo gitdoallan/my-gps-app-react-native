@@ -1,4 +1,4 @@
 export { AppConnectionStatus } from './AppConnectionStatus';
-export { AppConnectionToggle } from './AppConnectionToggle';
+export { AppConnectionToggleSection } from './AppConnectionToggleSection';
 export { CommunicationInterval } from './CommunicationInterval';
 export { PackageStatus } from './PackageStatus';

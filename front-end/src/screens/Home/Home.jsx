@@ -1,5 +1,5 @@
 import { HomeHeader } from 'components/Header';
-import { AppConnectionStatus, AppConnectionToggle, CommunicationInterval } from 'components/Cards';
+import { AppConnectionStatus, AppConnectionToggleSection, CommunicationInterval } from 'components/Cards';
 import { Divider } from 'components/Common';
 import * as S from './styles/Home.styles';
 
@@ -9,7 +9,7 @@ export function Home() {
       <HomeHeader />
       <AppConnectionStatus />
       <Divider />
-      <AppConnectionToggle />
+      <AppConnectionToggleSection />
       <CommunicationInterval />
     </S.Container>
   );
