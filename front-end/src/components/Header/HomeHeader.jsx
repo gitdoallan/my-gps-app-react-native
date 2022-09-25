@@ -1,4 +1,4 @@
-import * as S from './styles/Header.styles';
+import * as S from './styles/HomeHeader.styles';
 
 export function HomeHeader() {
   return (
@@ -6,5 +6,5 @@ export function HomeHeader() {
       <S.HeaderTitle>Olá, bem-vindo</S.HeaderTitle>
       <S.StatusLink>Status</S.StatusLink>
     </S.Header>
-  )
+  );
 }

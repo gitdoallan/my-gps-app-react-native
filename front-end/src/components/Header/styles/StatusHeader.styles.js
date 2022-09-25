@@ -13,13 +13,18 @@ export const Header = styled.View`
   background-color: ${theme.topBarBg};
 `;
 
-export const HeaderTitle = styled.Text`
-  font-size: 22px;
-  color: ${theme.topBarText};
-`;
-
-export const StatusLink = styled.Text`
+export const BackLink = styled.Text`
   font-size: 22px;
   font-weight: bold;
+  width: 65px;
   color: ${theme.topBarLink};
+`;
+
+export const Title = styled.Text`
+  font-size: 22px;
+  color: ${theme.topBarLink};
+`;
+
+export const RightSide = styled.View`
+width: 65px;
 `;

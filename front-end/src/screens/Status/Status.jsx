@@ -1,7 +1,7 @@
-import { Text } from 'react-native';
+import { StatusHeader } from 'components/Header';
 
 export function Status() {
   return (
-    <Text>Status</Text>
-  )
+    <StatusHeader />
+  );
 }
