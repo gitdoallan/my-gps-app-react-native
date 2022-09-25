@@ -1,7 +1,9 @@
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 export function Home() {
   return (
-    <Text>Home</Text>
+    <View>
+      <Text>Home</Text>
+    </View>
   )
 }
