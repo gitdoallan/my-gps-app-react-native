@@ -1,5 +1,5 @@
-import * as S from './styles/AppConnectionToggle.styles';
 import { Text, View } from 'react-native';
+import * as S from './styles/AppConnectionToggle.styles';
 
 export function AppConnectionToggle() {
   return (
@@ -11,5 +11,5 @@ export function AppConnectionToggle() {
         <Text>TOGGLE</Text>
       </View>
     </S.Container>
-  )
+  );
 }

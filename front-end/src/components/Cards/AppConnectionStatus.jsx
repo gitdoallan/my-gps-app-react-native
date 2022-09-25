@@ -13,5 +13,5 @@ export function AppConnectionStatus() {
         <S.Status>Online</S.Status>
       </View>
     </S.AppDetails>
-  )
+  );
 }

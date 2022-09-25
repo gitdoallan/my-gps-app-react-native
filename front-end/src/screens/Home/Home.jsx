@@ -1,8 +1,7 @@
-import * as S from './styles/Home.styles';
 import { HomeHeader } from 'components/Header';
-import { AppConnectionStatus } from 'components/Cards';
-import { AppConnectionToggle } from 'components/Cards';
+import { AppConnectionStatus, AppConnectionToggle } from 'components/Cards';
 import { Divider } from 'components/Common';
+import * as S from './styles/Home.styles';
 
 export function Home() {
   return (
@@ -12,5 +11,5 @@ export function Home() {
       <Divider />
       <AppConnectionToggle />
     </S.Container>
-  )
+  );
 }
