@@ -3,6 +3,7 @@ export const theme = {
     primary: '#000',
     secondary: '#fff',
     green: 'green',
+    gray: 'gray',
     backgroundColor: '#dcdde1',
     statusBarBg: '#000065',
     statusBar: 'light',

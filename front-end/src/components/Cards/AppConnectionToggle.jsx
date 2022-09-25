@@ -14,7 +14,10 @@ export function AppConnectionToggle() {
         </S.LabelSubtitle>
       </View>
       <View>
-        <Switch value={checked} onValueChange={() => setChecked(!checked)} />
+        <Switch
+          value={checked}
+          onValueChange={() => setChecked(!checked)}
+        />
       </View>
     </S.Container>
   );
