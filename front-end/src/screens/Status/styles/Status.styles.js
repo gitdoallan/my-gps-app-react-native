@@ -7,3 +7,8 @@ export const Container = styled.View`
   flex: 1;
   background-color: ${theme.backgroundColor};
 `;
+
+export const PackageStatusContainer = styled.View`
+  margin: 20px;
+  background-color: ${theme.backgroundColor};
+`;
