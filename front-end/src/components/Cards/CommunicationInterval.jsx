@@ -6,6 +6,7 @@ import * as S from './styles/CommunicationInterval.styles';
 export function CommunicationInterval() {
   const { serviceInterval } = useSelector((state) => state);
   const dispatch = useDispatch();
+
   return (
     <View>
       <View>
