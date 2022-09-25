@@ -6,12 +6,12 @@ import * as S from './styles/AppConnectionStatus.styles';
 export function AppConnectionStatus() {
   const theme = useTheme();
   return (
-    <S.AppDetails>
+    <S.Container>
       <Feather name="compass" size={80} color={theme.statusBarBg} />
       <View>
         <S.Title>My GPS - Tracking</S.Title>
         <S.Status>Online</S.Status>
       </View>
-    </S.AppDetails>
+    </S.Container>
   );
 }

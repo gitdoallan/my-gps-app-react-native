@@ -3,7 +3,7 @@ export const theme = {
     primary: '#000',
     secondary: '#fff',
     green: 'green',
-    backgroundColor: '#fff',
+    backgroundColor: '#dcdde1',
     statusBarBg: '#000065',
     statusBar: 'light',
     topBarBg: '#1e1c84',
@@ -12,6 +12,6 @@ export const theme = {
     divider: {
       marginTop: 10,
       color: 'gray',
-    }
+    },
   },
 };

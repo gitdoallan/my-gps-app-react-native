@@ -3,7 +3,7 @@ import { useTheme } from 'hooks';
 
 const theme = useTheme();
 
-export const AppDetails = styled.View`
+export const Container = styled.View`
   display: flex;
   flex-direction: row;
   padding: 30px 20px;
