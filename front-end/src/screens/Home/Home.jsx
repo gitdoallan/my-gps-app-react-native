@@ -1,9 +1,13 @@
-import { Text, View } from 'react-native';
+import { Text } from 'react-native';
+import * as S from './styles';
 
 export function Home() {
   return (
-    <View>
-      <Text>Home</Text>
-    </View>
+    <S.Container>
+      <S.Header>
+        <S.HeaderTitle>Olá, bem-vindo</S.HeaderTitle>
+        <S.StatusLink>Status</S.StatusLink>
+      </S.Header>
+    </S.Container>
   )
 }

@@ -8,8 +8,8 @@ import { theme } from 'styles';
 export default function App() {
   return (
     <ThemeProvider theme={theme}>
-      <SafeAreaView backgroundColor="#000065" />
-      <StatusBar style="light" />
+      <SafeAreaView backgroundColor={theme.default.statusBarBg} />
+      <StatusBar style={theme.default.statusBar} />
       <Home />
     </ThemeProvider>
   );
