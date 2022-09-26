@@ -3,13 +3,28 @@ import { getTimestamps, dateNowFormatted } from 'utils';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLocationSlice, setPendingLocationSlice } from 'redux/slicers';
+import { setLocationSlice, setPendingLocation, setRemoveFromOffline } from 'redux/slicers';
 import { sendLocationAPI } from 'utils/api';
 
 export function LocationService() {
   const [errorMsg, setErrorMsg] = useState('');
   const { serviceStatus, locationsValue } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const pendingLocations = locationsValue.offline;
+
+  const sendPendingLocations = async (type) => {
+    const cases = {
+      true: async () => {
+        Promise.all(pendingLocations.map(async (location) => {
+          sendLocationAPI(location)
+            .then(() => dispatch(setRemoveFromOffline(location)))
+            .catch(() => null);
+        }));
+      },
+    };
+    return cases[type]() || null;
+  };
+  sendPendingLocations(serviceStatus.status && serviceStatus.activated);
 
   const sendLocation = async () => {
     try {
@@ -31,10 +46,12 @@ export function LocationService() {
 
       const dispatchLocation = async (type) => {
         const cases = {
-          true: async () => sendLocationAPI(location)
-            .then(() => dispatch(setLocationSlice(location)))
-            .catch(() => dispatch(setPendingLocationSlice(location))),
-          false: () => dispatch(setPendingLocationSlice(location)),
+          true: async () => {
+            sendLocationAPI(location)
+              .then(() => dispatch(setLocationSlice(location)))
+              .catch(() => dispatch(setPendingLocation(location)));
+          },
+          false: () => dispatch(setPendingLocation(location)),
         };
         return cases[type]();
       };

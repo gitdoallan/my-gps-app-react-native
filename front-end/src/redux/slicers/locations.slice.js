@@ -1,20 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { online: [], offline: [] };
+const initialState = { all: [], offline: [] };
 
 export const locationSlice = createSlice({
   name: 'locationsValue',
   initialState,
   reducers: {
     setLocationSlice: (state, { payload }) => {
-      state.online.push(payload);
+      state.all.push(payload);
       return state;
     },
-    setPendingLocationSlice: (state, { payload }) => {
+    setPendingLocation: (state, { payload }) => {
+      state.all.push(payload);
       state.offline.push(payload);
+      return state;
+    },
+    setRemoveFromOffline: (state, { payload }) => {
+      state.offline = state.offline.filter((item) => item.id !== payload.id);
       return state;
     },
   },
 });
 
-export const { setLocationSlice, setPendingLocationSlice } = locationSlice.actions;
+export const { setLocationSlice, setPendingLocation, setRemoveFromOffline } = locationSlice.actions;
