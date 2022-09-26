@@ -7,12 +7,13 @@ import * as S from './styles/Status.styles';
 
 export function Status() {
   const { locationsValue } = useSelector((state) => state);
+  const value = [...locationsValue.all].reverse().slice(0, 50);
 
   return (
     <S.Container>
       <StatusHeader />
       <FlatList
-        data={locationsValue.all}
+        data={value}
         renderItem={(e) => (
           <S.PackageStatusContainer>
             <PackageStatus
