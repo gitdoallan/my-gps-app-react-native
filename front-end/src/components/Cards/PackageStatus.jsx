@@ -23,7 +23,7 @@ export function PackageStatus({ id, time }) {
           </S.PackageStatusText>
         </View>
         <View>
-          <S.PackageTime>{time}</S.PackageTime>
+          <S.PackageTime>{time.slice(-5)}</S.PackageTime>
         </View>
       </S.PackageStatus>
     </View>
