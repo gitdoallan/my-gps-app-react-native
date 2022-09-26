@@ -7,6 +7,7 @@ import * as S from './styles/PackageStatus.styles';
 export function PackageStatus({ id, time }) {
   const { locationsValue } = useSelector((state) => state);
   const pending = locationsValue.offline.find((location) => location.id === id);
+
   return (
     <View>
       <Divider />
@@ -30,6 +31,6 @@ export function PackageStatus({ id, time }) {
 }
 
 PackageStatus.propTypes = {
-  id: propTypes.string.isRequired,
+  id: propTypes.number.isRequired,
   time: propTypes.string.isRequired,
 };

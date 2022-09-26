@@ -16,7 +16,7 @@ export const locationSlice = createSlice({
       return state;
     },
     setRemoveFromOffline: (state, { payload }) => {
-      state.offline = state.offline.filter((item) => item.id !== payload.id);
+      state.offline = state.offline.filter((item) => item.id !== payload);
       return state;
     },
   },

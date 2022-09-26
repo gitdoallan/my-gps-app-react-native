@@ -1,4 +1,4 @@
-import { Text, View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { getTimestamps, dateNowFormatted } from 'utils';
 import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
@@ -8,26 +8,21 @@ import { sendLocationAPI } from 'utils/api';
 
 export function LocationService() {
   const [errorMsg, setErrorMsg] = useState('');
-  const { serviceStatus, locationsValue } = useSelector((state) => state);
+  const { serviceStatus, locationsValue, serviceInterval } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const pendingLocations = locationsValue.offline;
 
-  const sendPendingLocations = async (type) => {
-    const cases = {
-      true: async () => {
-        Promise.all(pendingLocations.map(async (location) => {
-          sendLocationAPI(location)
-            .then(() => dispatch(setRemoveFromOffline(location)))
-            .catch(() => {});
-        }));
-      },
-      false: async () => {},
-    };
-    return cases[type]() || null;
+  const sendPendingLocations = async (pending) => {
+    Promise.all(pending.map(async (location) => {
+      sendLocationAPI(location)
+        .then((res) => {
+          if (res.status) {
+            dispatch(setRemoveFromOffline(location.id));
+          }
+        });
+    }));
   };
-  sendPendingLocations(pendingLocations.length > 0);
 
-  const sendLocation = async () => {
+  const sendLocation = async (isAppOnline) => {
     try {
       const { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
@@ -45,35 +40,44 @@ export function LocationService() {
         time: dateNowFormatted(),
       };
 
-      const dispatchLocation = async (type) => {
+      const dispatchLocation = async () => {
         const cases = {
           true: async () => {
             sendLocationAPI(location)
-              .then(() => dispatch(setLocationSlice(location)))
+              .then((res) => {
+                if (res.status) {
+                  return dispatch(setLocationSlice(location));
+                } return dispatch(setPendingLocation(location));
+              })
               .catch(() => dispatch(setPendingLocation(location)));
           },
           false: () => dispatch(setPendingLocation(location)),
         };
-        return cases[type]() || null;
+        return cases[isAppOnline]();
       };
-      dispatchLocation(serviceStatus.status && serviceStatus.activated);
+      dispatchLocation();
     } catch (error) {
       setErrorMsg('Error getting location', error);
     }
   };
 
   useEffect(() => {
-    sendLocation();
-  }, []);
+    const arr = [serviceStatus.status, serviceStatus.activated];
+    const isAppOnline = arr.every((item) => item === true);
+
+    const interval = setInterval(() => {
+      sendLocation(isAppOnline);
+      if (locationsValue.offline.length > 0 && isAppOnline) {
+        sendPendingLocations(locationsValue.offline);
+      }
+    }, serviceInterval);
+    return () => clearInterval(interval);
+  }, [serviceStatus, serviceInterval, locationsValue.offline]);
 
   return (
     <View>
       {errorMsg && (
-      <Text>
-        {' '}
-        { errorMsg }
-        {' '}
-      </Text>
+        Alert.alert('Error', errorMsg)
       )}
     </View>
   );
