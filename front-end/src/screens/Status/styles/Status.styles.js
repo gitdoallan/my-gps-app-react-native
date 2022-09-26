@@ -9,6 +9,6 @@ export const Container = styled.View`
 `;
 
 export const PackageStatusContainer = styled.View`
-  margin: 20px;
+  margin: 20px 20px 0 20px;
   background-color: ${theme.backgroundColor};
 `;
