@@ -41,7 +41,8 @@ Se desejar abrir diretamente no Android, rode o comando.
  2. Expo-location - Obter dados de geolocalização do usuário.
  3. Axios - Fazer requisições http para a API do backend.
  4. Redux Toolkit - Manipular o estado global da aplicação.
- 5. Redux Persist - Persistir dados do Redux no Async Storage do telefone.
+ 5. Redux Persist - Persistir dados do Redux no Local Storage do telefone.
+ 6. React Native Async Storage - Implementada com o Redux Persist para permitir a utilização do Local Storage.
  6. Styled Components - Manipulação de estilos da aplicação.
  7. ESLint - Organização de código.
  8. NetInfo - Verificação de conexão com a internet.
