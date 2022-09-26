@@ -14,7 +14,9 @@
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.0",
     "@reduxjs/toolkit": "^1.8.5",
+    "axios": "^0.27.2",
     "expo": "~46.0.9",
+    "expo-location": "~14.3.0",
     "expo-splash-screen": "~0.16.2",
     "expo-status-bar": "~1.4.0",
     "react": "18.0.0",
@@ -24,8 +26,7 @@
     "react-native-screens": "^3.17.0",
     "react-native-web": "~0.18.7",
     "react-redux": "^8.0.4",
-    "styled-components": "^5.3.5",
-    "expo-location": "~14.3.0"
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",

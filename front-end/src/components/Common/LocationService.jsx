@@ -4,6 +4,7 @@ import * as Location from 'expo-location';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setLocationSlice, setPendingLocationSlice } from 'redux/slicers';
+import { sendLocationAPI } from 'utils/api';
 
 export function LocationService() {
   const [errorMsg, setErrorMsg] = useState('');
@@ -28,9 +29,11 @@ export function LocationService() {
         time: dateNowFormatted(),
       };
 
-      const dispatchLocation = (type) => {
+      const dispatchLocation = async (type) => {
         const cases = {
-          true: () => dispatch(setLocationSlice(location)),
+          true: async () => sendLocationAPI(location)
+            .then(() => dispatch(setLocationSlice(location)))
+            .catch(() => dispatch(setPendingLocationSlice(location))),
           false: () => dispatch(setPendingLocationSlice(location)),
         };
         return cases[type]();
