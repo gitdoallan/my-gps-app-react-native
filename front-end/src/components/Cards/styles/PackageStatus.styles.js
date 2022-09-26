@@ -7,7 +7,7 @@ export const PackageStatus = styled.View`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin: 20px 0;
+  margin: 20px 0 0 0;
 `;
 
 export const PackageStatusIdText = styled.Text`

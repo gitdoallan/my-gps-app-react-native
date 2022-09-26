@@ -18,13 +18,14 @@ export function LocationService() {
         Promise.all(pendingLocations.map(async (location) => {
           sendLocationAPI(location)
             .then(() => dispatch(setRemoveFromOffline(location)))
-            .catch(() => null);
+            .catch(() => {});
         }));
       },
+      false: async () => {},
     };
     return cases[type]() || null;
   };
-  sendPendingLocations(serviceStatus.status && serviceStatus.activated);
+  sendPendingLocations(pendingLocations.length > 0);
 
   const sendLocation = async () => {
     try {
@@ -53,7 +54,7 @@ export function LocationService() {
           },
           false: () => dispatch(setPendingLocation(location)),
         };
-        return cases[type]();
+        return cases[type]() || null;
       };
       dispatchLocation(serviceStatus.status && serviceStatus.activated);
     } catch (error) {
@@ -64,10 +65,6 @@ export function LocationService() {
   useEffect(() => {
     sendLocation();
   }, []);
-
-  useEffect(() => {
-    console.log(locationsValue);
-  }, [locationsValue]);
 
   return (
     <View>
