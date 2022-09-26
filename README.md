@@ -10,7 +10,7 @@ O design foi desenvolvido de forma similar a imagem estática que foi provida pe
 
  Clonar este repositório.
     
-        git clone git@github.com:gitdoallan/my-gps-app-react-native.git
+    git clone git@github.com:gitdoallan/my-gps-app-react-native.git
    
 Abrir a pasta **back-end** e instalar os pacotes necessários para rodar o back-end.
 
