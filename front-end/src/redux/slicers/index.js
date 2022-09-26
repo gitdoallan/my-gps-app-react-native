@@ -5,4 +5,4 @@ export {
 } from './serviceStatus.slice';
 
 export { serviceIntervalSlice, setServiceInterval } from './serviceInterval.slice';
-export { locationSlice } from './locations.slice';
+export { locationSlice, setLocationSlice, setPendingLocationSlice } from './locations.slice';

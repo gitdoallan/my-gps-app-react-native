@@ -3,6 +3,15 @@
     "name": "MyGPS",
     "slug": "MyGPS",
     "version": "1.0.0",
+    "ios": {
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "This app uses your location to show you where you are.",
+        "NSLocationAlwaysUsageDescription": "This app uses your location to show you where you are."
+      }
+    },
+    "android": {
+      "permissions": ["android.permission.ACCESS_COARSE_LOCATION"]
+    },
     "assetBundlePatterns": [
       "**/*"
     ]

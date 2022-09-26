@@ -6,7 +6,7 @@ import { Routes } from 'routes';
 import { theme } from 'themes';
 import { Provider } from 'react-redux';
 import { store } from 'redux/store';
-import { GetLocation } from 'components/Common';
+import { LocationService } from 'components/Common';
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <SafeAreaView backgroundColor={theme.default.statusBarBg} />
         <StatusBar style={theme.default.statusBar} />
-        <GetLocation />
+        <LocationService />
         <Routes />
       </ThemeProvider>
     </Provider>

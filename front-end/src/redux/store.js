@@ -5,6 +5,6 @@ export const store = configureStore({
   reducer: {
     serviceStatus: serviceStatusSlice.reducer,
     serviceInterval: serviceIntervalSlice.reducer,
-    locations: locationSlice.reducer,
+    locationsValue: locationSlice.reducer,
   },
 });
