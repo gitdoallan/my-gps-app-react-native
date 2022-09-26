@@ -5,18 +5,21 @@ import { ThemeProvider } from 'styled-components';
 import { Routes } from 'routes';
 import { theme } from 'themes';
 import { Provider } from 'react-redux';
-import { store } from 'redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
 import { LocationService } from 'components/Common';
+import { store, persistor } from 'redux/store';
 
 export default function App() {
   return (
     <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <SafeAreaView backgroundColor={theme.default.statusBarBg} />
-        <StatusBar style={theme.default.statusBar} />
-        <LocationService />
-        <Routes />
-      </ThemeProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <ThemeProvider theme={theme}>
+          <SafeAreaView backgroundColor={theme.default.statusBarBg} />
+          <StatusBar style={theme.default.statusBar} />
+          <LocationService />
+          <Routes />
+        </ThemeProvider>
+      </PersistGate>
     </Provider>
   );
 }
