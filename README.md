@@ -2,7 +2,7 @@
 Aplicativo multiplataforma para rastreamento de localização do usuário.
 
 ### Design
-O design foi desenvolvido de forma similar a imagem estática que foi provida pela Contele.
+O design foi desenvolvido de forma similar a imagem estática que foi provida pelo cliente.
 
 ![My GPS - App Screenshot](read-me-images/my-gps-app.png)
 
