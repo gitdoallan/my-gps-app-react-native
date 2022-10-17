@@ -1,4 +1,4 @@
-## Contele React Native GPS Track
+## React Native GPS Track
 Aplicativo multiplataforma para rastreamento de localização do usuário.
 
 ### Design
